@@ -89,6 +89,7 @@
     {"name":"spr_levelUp_small","order":13,"path":"sprites/spr_levelUp_small/spr_levelUp_small.yy",},
     {"name":"spr_levelUp","order":12,"path":"sprites/spr_levelUp/spr_levelUp.yy",},
     {"name":"Spr_me","order":5,"path":"sprites/Spr_me/Spr_me.yy",},
+    {"name":"spr_new","order":10,"path":"sprites/spr_new/spr_new.yy",},
     {"name":"spr_npc_placeholder","order":3,"path":"sprites/spr_npc_placeholder/spr_npc_placeholder.yy",},
     {"name":"spr_npc","order":4,"path":"sprites/spr_npc/spr_npc.yy",},
     {"name":"spr_numbers","order":7,"path":"sprites/spr_numbers/spr_numbers.yy",},

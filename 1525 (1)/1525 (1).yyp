@@ -121,6 +121,7 @@
     {"id":{"name":"spr_levelUp_small","path":"sprites/spr_levelUp_small/spr_levelUp_small.yy",},},
     {"id":{"name":"spr_levelUp","path":"sprites/spr_levelUp/spr_levelUp.yy",},},
     {"id":{"name":"Spr_me","path":"sprites/Spr_me/Spr_me.yy",},},
+    {"id":{"name":"spr_new","path":"sprites/spr_new/spr_new.yy",},},
     {"id":{"name":"spr_npc_placeholder","path":"sprites/spr_npc_placeholder/spr_npc_placeholder.yy",},},
     {"id":{"name":"spr_npc","path":"sprites/spr_npc/spr_npc.yy",},},
     {"id":{"name":"spr_numbers","path":"sprites/spr_numbers/spr_numbers.yy",},},
