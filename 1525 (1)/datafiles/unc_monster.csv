@@ -1,0 +1,3 @@
+index,name,object,max_hp,move_speed,atk
+1001,Ghoul,o_ghoul,5,1,1
+1002,Wolf,o_wolf,3,2,1

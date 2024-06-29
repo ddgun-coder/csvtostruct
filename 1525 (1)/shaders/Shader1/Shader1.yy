@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"Shader1",
+  "name":"Shader1",
+  "parent":{
+    "name":"Fonts",
+    "path":"folders/Fonts.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

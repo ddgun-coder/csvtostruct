@@ -1,0 +1,8 @@
+con_name,price,type,name,sprite,item_id,is_passive,re,sets
+apple,5000,1,apple # banana and kimchi,spr_apple,1,0,0,0
+keyboard,2000,2,"keyboard, banana man lol",spr_keyboard,2,1,0,-1
+boom,1500,0. 1,boom,spr_boom,3,0,0,0
+ring1,5520,0,low_RING,spr_ring1,4,1,50.25,0
+ring2,5520,0,low_RING,spr_ring1,5,1,50.25,0
+ring3,5520,0,low_RING,spr_ring1,6,1,50.25,0
+ring4,5520,0,low_RING,spr_ring1,7,1,50.25,0
