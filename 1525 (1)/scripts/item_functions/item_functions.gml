@@ -249,17 +249,17 @@ function item_create(_x, _y, _type) {
 function item_to_csv(path) {
 	var txt = file_text_open_write(path);
 
-	var names = variable_struct_get_names(global.test_item);
+	var names = variable_struct_get_names(global.test_item); //names에는 현재 struct에 정의된 key들을 가져와 줍니다.
 	var num = array_length(names);
 	
-	file_write_with_dqm(txt, "con_name");
-	file_text_write_string(txt, ",");
+	file_write_with_dqm(txt, "con_name"); //코드에서 사용될 이름, 주로 global.con_name 형태
+	file_text_write_string(txt, ","); //, 로 나눠줌.
 	for (var i = 0; i < num - 1; i++) {
-		file_write_with_dqm(txt, names[i]);
+		file_write_with_dqm(txt, names[i]);// 현재 struct에 존재하는 key값들을 1행에 전부 써줍니다.
 		file_text_write_string(txt, ",");
 	}
-	file_write_with_dqm(txt, names[num - 1]);
-	file_text_writeln(txt);
+	file_write_with_dqm(txt, names[num - 1]);//마지막에는 ,를 붙이면 안되니 마지막은 따로 있습니다. 
+	file_text_writeln(txt);//다음 행으로
 	
 	array_num = array_length(global.item_array);
 	var item_struct, name;
@@ -267,7 +267,7 @@ function item_to_csv(path) {
 		item_struct = variable_global_get(global.item_array[i]);
 		file_write_with_dqm(txt, global.item_array[i]);
 		file_text_write_string(txt, ",");
-		show_debug_message(item_struct);
+		//먼저 현재의 이름을 써줍니다.
 		for (var j = 0; j < num - 1; j++) {
 			switch(names[j]) {
 				case "sprite":
@@ -281,6 +281,7 @@ function item_to_csv(path) {
 					break;
 			}
 		}
+		//이후 struct에 들어있는 key대로 넣어주지만, 
 		switch(names[num - 1]) {
 			case "sprite":
 				show_debug_message("is_sprite");

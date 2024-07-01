@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-item = noone;
+my_item = noone;
 
 number = 0;
 time = 0;
@@ -22,13 +22,13 @@ timer_control = function() {
 }
 
 visible_control = function() {
-	if (time > 120) {
+	if (time > 60) {
 		obj_item_info_sub.visible = true;
 		visible = true;
-		item = global.items[idd.number];	
+		my_item = global.items[idd.number];	
 	}
 	else {
-		item = noone;
+		my_item = noone;
 		obj_item_info_sub.visible = false;
 		visible = false;	
 	}

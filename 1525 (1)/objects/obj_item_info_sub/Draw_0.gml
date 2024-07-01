@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-var item = obj_item_info.item;
+var item = obj_item_info.my_item;
 draw_self();
 if (item != noone) {
 	var image_width = sprite_get_width(sprite_index) * image_xscale;
