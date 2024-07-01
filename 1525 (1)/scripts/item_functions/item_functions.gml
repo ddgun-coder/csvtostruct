@@ -80,17 +80,18 @@ function csv_to_item(_path) {
 	show_debug_message(working_directory + "datas\\my_data.csv");
 	csv = load_csv(working_directory + "datas\\my_data.csv");
 	
-	var w = ds_grid_width(csv);
-	var h = ds_grid_height(csv);
-	var names = [];
+	var w = ds_grid_width(csv); //csv의 가로 크기
+	var h = ds_grid_height(csv); //csv의 세로 크기 
+	var names = []; //0행에서 가져올 key값들.
 	
 	for (var i = 0; i < w; i++) {
-		array_push(names, csv[# i, 0]);
+		array_push(names, csv[# i, 0]); //먼저 0행에서 이름부터 가져와 줍니다.
 	}
 	
 	var item_struct, name, struct, val, item_type, divided_array, divided_num;
 	for (var i = 1; i < h; i++ ) {
 		struct = new item_void();
+		//아무것도 없는 struct를 생성해줍니다.
 		for (var j = 0; j < w; j++) {
 			name = names[j];
 			switch(name) {
@@ -109,13 +110,9 @@ function csv_to_item(_path) {
 			}
 			struct[$ name] = val;
 		}
+		//이전과 같이 spritee는 추가 작업을 거쳐줍니다. type은 .으로 여러개를 표현하기 했으니 이 부분도 다르게 해줍니다.
 		variable_global_set(csv[# 0, i], struct);
-		/*
-		for (var j = 0; j < divided_num; j++) {
-			var type_num = real(divided_array[j]);
-			ds_list_add(global.item_array[type_num], struct);
-		}
-		*/
+		//구조체가 완성되면 전역변수로 설정해줍니다.
 	}
 	
 	ds_grid_destroy(csv);
@@ -131,22 +128,26 @@ function set_item_combi(_path) {
 	var num;
 	
 	for (var i = 1; i < h; i++) {
-		temp_array = array_create(0, 0);
+		//1부터 시작 하는 이유는 1행은 item1, item2, item3... 처럼 보여주는 용도이기 때문.
+		temp_array = array_create(0, 0);//[ ]배열 생성
 		for (var j = 0; j < w; j++) {
 			if (csv[# j, i] != "") {
 				index = variable_global_get(csv[# j, i]);
 				array_push(temp_array, index);
+				//해당 위치에 값이 들어있다면 해당 아이템을 주소를 index로 가져와 주고, temp_array에 하나씩 넣어줍니다.
 			}
 		}
 		ds_list_add(global.item_combinations, temp_array);
+		//해당 조합식을 global.item_combinations에 추가
 		
 		array_copy(sub_index, 0, temp_array, 0, array_length(temp_array) - 1);
 		num = array_length(sub_index);
 		for (var j = 0; j < num; j++) {
 			array_push(sub_index[j].combination, i - 1);
 		}
+		//다시 temp_array로 돌아가서, 각 아이템의 조합식을 해당 아이템에 부여해 줍니다.
 	}
-	
+
 	ds_grid_destroy(csv);
 }
 
@@ -271,7 +272,6 @@ function item_to_csv(path) {
 		for (var j = 0; j < num - 1; j++) {
 			switch(names[j]) {
 				case "sprite":
-					show_debug_message("is_sprite");
 					file_write_with_dqm(txt, sprite_get_name(item_struct[$ names[j]]));
 					file_text_write_string(txt, ",");
 					break;
@@ -281,16 +281,16 @@ function item_to_csv(path) {
 					break;
 			}
 		}
-		//이후 struct에 들어있는 key대로 넣어주지만, 
+		//이후 struct에 들어있는 key대로 넣어주지만, sprite같은 경우 sprite_get_name()을 추가로 넘겨줍니다.
 		switch(names[num - 1]) {
 			case "sprite":
-				show_debug_message("is_sprite");
 				file_write_with_dqm(txt, sprite_get_name(item_struct[$ names[j]]));
 				break;
 			default : 
 				file_write_with_dqm(txt, item_struct[$ names[j]]);
 				break;
 		}
+		//마지막 부분은 ,을 넣지 않기 때문에 따로 빼준 부분입니다.
 		file_text_writeln(txt);
 	}
 	
